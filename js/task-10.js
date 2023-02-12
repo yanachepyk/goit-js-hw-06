@@ -22,6 +22,7 @@ createBtn.addEventListener('click', () => {
   const amount = input.value;
   createBoxes(amount);
 });
+
 destroyBtn.addEventListener('click', destroyBoxes);
 
 
@@ -31,19 +32,14 @@ function createBoxes(amount) {
   const boxes = [];
 
   for( let i = 0; i < amount; i++) {
-    // const div = document.createElement('div');
-    // div.style.width = `${width}px`;
-    // div.style.height = `${height}px`;
-    // div.style.backgroundColor = getRandomHexColor();
-
-    // boxes.push(div);
     boxes.push(`<div style="width: ${width}px; height: ${height}px; background-color: ${getRandomHexColor()};"></div>`);
     
     width += 10;
     height += 10;
   }
+
+  destroyBoxes();
   boxesContainer.insertAdjacentHTML('beforeend', boxes.join(''));
-  // boxesContainer.append(...boxes);
 } 
 
 
@@ -51,4 +47,3 @@ function destroyBoxes () {
   boxesContainer.innerHTML = '';
 }
 
-alert('Когда функция getRandomHexColor генерирует рандомный hex цвет состоящий из 5-ти символов, браузер говорит, что значение не валидно и div остается с белым цветом. Почему так?');
